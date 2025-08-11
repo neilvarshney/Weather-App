@@ -10,7 +10,7 @@ type WeatherData = {
   dt: number
   timezone: number
   sys: {sunrise: number, sunset: number};
-
+  wind: {deg: number, gust: number, speed: number};
 };
 
 export default function Weather() {
@@ -45,7 +45,7 @@ export default function Weather() {
       {(!weather || !weather.main || !weather.sys) ? <div className="text-5xl font-bold" >Loading...</div> :  
       
         <div className='flex min-h-screen justify-center items-center sm:p-20 flex-col'>
-            <CurrentTemp city = {cityInput} temperature = {weather.main.temp} weatherDescription={weather.weather[0].description} iconCode = {weather.weather[0].icon} time = {weather.dt} timezone = {weather.timezone} sunrise = {weather.sys.sunrise} sunset = {weather.sys.sunset}/>
+            <CurrentTemp city = {cityInput} temperature = {weather.main.temp} weatherDescription={weather.weather[0].description} iconCode = {weather.weather[0].icon} time = {weather.dt} timezone = {weather.timezone} sunrise = {weather.sys.sunrise} sunset = {weather.sys.sunset} wind = {weather.wind}/>
         </div>
       }
     </div>

@@ -2,12 +2,17 @@ import requests
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import json
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 class WeatherApp():
-    API_KEY = '6096e6729d5c1c9ac9e4c704c2d99f8f'
+    API_KEY = os.getenv('OPENWEATHER_API_KEY')
 
     def __init__(self):
         self.cityName = ""

@@ -65,3 +65,33 @@ few clouds
 scattered clouds
 broken clouds
 overcast clouds
+
+ex:
+https://openweathermap.org/img/wn/03d@4x.png
+
+
+Icon Categories:
+Clear Sky
+01d - clear sky (day)
+01n - clear sky (night)
+Clouds
+02d - few clouds (day)
+02n - few clouds (night)
+03d - scattered clouds (day)
+03n - scattered clouds (night)
+04d - broken clouds (day)
+04n - broken clouds (night)
+Rain
+09d - shower rain (day)
+09n - shower rain (night)
+10d - rain (day)
+10n - rain (night)
+Thunderstorm
+11d - thunderstorm (day)
+11n - thunderstorm (night)
+Snow
+13d - snow (day)
+13n - snow (night)
+Mist/Fog
+50d - mist (day)
+50n - mist (night)
