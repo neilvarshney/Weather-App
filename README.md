@@ -48,7 +48,14 @@ A modern, responsive weather application built with Next.js that provides real-t
 
 ## API Integration
 
-The application integrates with OpenWeatherMap API to provide:
+The application uses proper RESTful API architecture with a Python Flask backend that handles:
+- **RESTful Endpoints**: `/cities/{city_name}` and `/cities/{city_name}/weather` following REST conventions
+- **HTTP Methods**: Proper GET requests with query parameters for coordinates
+- **Status Codes**: Appropriate HTTP status codes (200, 400, 409, 500) for different response scenarios
+- **Error Handling**: Comprehensive error handling for HTTP errors, connection issues, timeouts, and JSON parsing failures
+- **Data Validation**: Input validation and proper error responses
+
+The backend integrates with OpenWeatherMap API to provide:
 - Current weather conditions
 - Temperature data (current, max, min, feels like)
 - Wind information (speed, direction, gusts)
@@ -63,3 +70,20 @@ This project uses modern React patterns including:
 - Context API for state management
 - TypeScript for type safety
 - Tailwind CSS for responsive styling
+
+## Error Handling
+
+**Backend (Python Flask):**
+- Comprehensive error handling for HTTP requests, connections, timeouts, and JSON parsing
+- Proper HTTP status codes and error responses
+- Input validation and sanitization
+
+**Frontend (React):**
+- Basic error handling with loading states
+- Component-level error boundaries (could be enhanced)
+- Graceful fallbacks for missing data
+
+**Areas for Enhancement:**
+- Frontend error boundaries for better error isolation
+- User-friendly error messages and retry mechanisms
+- Network error handling and offline support
