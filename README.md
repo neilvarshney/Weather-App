@@ -11,6 +11,13 @@ A modern, responsive weather application built with Next.js that provides real-t
 - **Responsive Design**: Clean, modern UI that works across all devices
 - **Timezone Support**: Accurate time display based on location
 
+## Screenshots
+
+![Weather App Homepage](/image1.png)
+![Weather App Screenshot 2](/image2.png)
+![Weather App Screenshot 3](/image3.png)
+![Weather App Screenshot 4](/image4.png)
+
 ## Technology Stack
 
 - **Frontend**: Next.js 14 with TypeScript
@@ -32,23 +39,6 @@ A modern, responsive weather application built with Next.js that provides real-t
    npm run dev
    ```
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   ├── currentTemp.tsx      # Main weather display component
-│   │   ├── header.tsx           # Application header
-│   │   ├── search.tsx           # Location search functionality
-│   │   ├── weather.tsx          # Weather data component
-│   │   └── IridescenceContext.tsx # Dynamic background color context
-│   ├── layout.tsx               # Root layout component
-│   └── page.tsx                 # Main application page
-└── backend/
-    └── app.py                   # Backend API (Python)
-```
 
 ## Key Components
 
@@ -74,7 +64,3 @@ This project uses modern React patterns including:
 - Context API for state management
 - TypeScript for type safety
 - Tailwind CSS for responsive styling
-
-## License
-
-This project is open source and available under the MIT License.

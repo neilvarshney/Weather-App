@@ -158,12 +158,11 @@ export default function CurrentTemp({ city, state, country, temperature, tempera
             <div className='bg-gradient-to-r from-gray-400/50 to-gray-400/50 rounded-2xl border border-gray-700/50 w-[840px] h-[200px]'>
                 <div className='mt-5 flex flex-col gap-3 items-center'>
                     <h1 className='text-4xl font-bold'>
-                        {city}, {state}, {country}
+
+                        {state === undefined ? `${city}, ${state}, ${country}` : `${city}, ${country}`}
+                        
                     </h1>
 
-                    {/* <h1 className='text-sm'>
-                        As Of
-                    </h1> */}
                     <h1 className='text-xl'>
                         {currentTime(time, timezone)}
                     </h1>
