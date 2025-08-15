@@ -13,10 +13,10 @@ A modern, responsive weather application built with Next.js that provides real-t
 
 ## Screenshots
 
-![Weather App Homepage](/image1.png)
-![Weather App Screenshot 2](/image2.png)
-![Weather App Screenshot 3](/image3.png)
-![Weather App Screenshot 4](/image4.png)
+![Weather App Homepage](/public/image1.png)
+![Weather App Screenshot 2](/public/image2.png)
+![Weather App Screenshot 3](/public/image3.png)
+![Weather App Screenshot 4](/public/image4.png)
 
 ## Technology Stack
 
