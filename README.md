@@ -24,7 +24,6 @@ A modern, responsive weather application built with Next.js that provides real-t
 - **Styling**: Tailwind CSS
 - **Weather API**: OpenWeatherMap API
 - **State Management**: React Context API
-- **Deployment**: Ready for Vercel deployment
 
 ## Getting Started
 
