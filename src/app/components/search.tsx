@@ -53,7 +53,7 @@ export default function Search() {
 
     if(selectedCity)
     {
-      window.location.href = `/weather?city=${encodeURIComponent(selectedCity.name)}&lat=${selectedCity.lat}&lon=${selectedCity.lon}`;
+      window.location.href = `/weather?city=${encodeURIComponent(selectedCity.name)}&lat=${selectedCity.lat}&lon=${selectedCity.lon}&state=${selectedCity.state}`;
     }
   
   };

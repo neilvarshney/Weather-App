@@ -9,6 +9,14 @@ function mphTokmh(value: number){
     return value.toFixed(1);
 }
 
+function metersToKM(value: number){
+    return value / 1000;
+}
+
+function secondsToHours(value: number){
+    return value/3600;
+}
+
 function currentTime(time: number | null, timezone: number | null)
 {
     if(time != null && timezone != null)
@@ -59,14 +67,24 @@ type Wind = {
 
 type CurrentTempProps = {
     city: string | null;
+    state: string | null;
+    country: string | null;
     temperature: number | null;
+    temperatureMax: number;
+    temperatureMin: number;
+    feelsLike: number;
     weatherDescription: string | null;
     iconCode: string | null;
     time: number | null;
-    timezone: number | null;
+    timezone: number;
     sunrise: number | null;
     sunset: number | null;
     wind: Wind;
+    sea_level: number;
+    grnd_level: number;
+    pressure: number;
+    visibility: number;
+    humidity: number;
   };
 
 function kelvinToCelcius(temp: number){
@@ -74,7 +92,7 @@ function kelvinToCelcius(temp: number){
 }
 
 
-export default function CurrentTemp({ city, temperature, weatherDescription, iconCode, time, timezone, sunrise, sunset, wind }: CurrentTempProps){
+export default function CurrentTemp({ city, state, country, temperature, temperatureMax, temperatureMin, feelsLike, weatherDescription, iconCode, time, timezone, sunrise, sunset, wind,  grnd_level, humidity, pressure, sea_level, visibility}: CurrentTempProps){
 
     const { setIridescenceColor } = useIridescence();
     
@@ -139,10 +157,13 @@ export default function CurrentTemp({ city, temperature, weatherDescription, ico
         <div className='flex flex-col gap-10'>
             <div className='bg-gradient-to-r from-gray-400/50 to-gray-400/50 rounded-2xl border border-gray-700/50 w-[840px] h-[200px]'>
                 <div className='mt-5 flex flex-col gap-3 items-center'>
-                    <h1 className='text-4xl'>
-                        {city}
+                    <h1 className='text-4xl font-bold'>
+                        {city}, {state}, {country}
                     </h1>
 
+                    {/* <h1 className='text-sm'>
+                        As Of
+                    </h1> */}
                     <h1 className='text-xl'>
                         {currentTime(time, timezone)}
                     </h1>
@@ -150,7 +171,6 @@ export default function CurrentTemp({ city, temperature, weatherDescription, ico
                     <h1>
                         {currentDate(time, timezone)}
                     </h1>
-
                 </div>
             </div>
             <div className="flex flex-row gap-10">
@@ -161,8 +181,40 @@ export default function CurrentTemp({ city, temperature, weatherDescription, ico
                         </h1>
 
                         <h1 className='w-[50px] mt-2 text-2xl'>
-                            {weatherDescription} 
+                                {weatherDescription} 
                         </h1>
+
+                        <div className='mt-10 flex flex-col gap-5 text-xl'>
+                            <div className='flex justify-between items-center w-80'>
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                    {`Feels Like:`}
+                                </h1>
+
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                        {`${kelvinToCelcius(feelsLike)}°C`}
+                                </h1>
+                            </div>
+
+                            <div className='flex justify-between items-center w-80'>
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                    {`Max:`}
+                                </h1>
+
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                        {`${kelvinToCelcius(temperatureMax)}°C`}
+                                </h1>
+                            </div>
+
+                            <div className='flex justify-between items-center w-80'>
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                    {`Min:`}
+                                </h1>
+
+                                <h1 className='text-md border-b-4 border-gray-600/50'>
+                                        {`${kelvinToCelcius(temperatureMin)}°C`}
+                                </h1>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <img className='text-center ml-5 mb-10 size-[120px] border border-4 border-blue-200 rounded-full' src={`https://openweathermap.org/img/wn/${iconCode}@4x.png`} alt="Weather Icon" />
@@ -212,7 +264,75 @@ export default function CurrentTemp({ city, temperature, weatherDescription, ico
             </div>
 
             <div className='bg-gradient-to-r from-gray-400/50 to-gray-400/50 rounded-2xl p-8 border border-gray-700/50 w-[840px] h-[300px]'>
-                Other stats
+
+                <h1 className='text-5xl'>
+                    Other Stats
+                </h1>
+                <div className='mt-7 flex flex-row gap-52'>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Humidity: 
+                        </h1>
+
+                        <h1>
+                            {humidity}%
+                        </h1>
+                    </div>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Pressure:
+                        </h1>
+
+                        <h1>
+                            {pressure} hPa
+                        </h1>
+                    </div>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Sea Level:
+                        </h1>
+
+                        <h1>
+                            {sea_level} hPa
+                        </h1>
+                    </div>
+                </div>
+
+                <div className='mt-10 flex flex-row gap-52'>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Visibility: 
+                        </h1>
+
+                        <h1>
+                            {metersToKM(visibility)} km 
+                        </h1>
+                    </div>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Timezone:
+                        </h1>
+
+                        <h1>
+                            UTC{secondsToHours(timezone) > 0 ? "+" + secondsToHours(timezone) : "" + secondsToHours(timezone)}
+                        </h1>
+                    </div>
+
+                    <div className='flex flex-col gap-2 w-[120px] flex-shrink-0'>
+                        <h1 className='border-b-4 border-gray-600/50 w-fit'>
+                            Ground Level:
+                        </h1>
+
+                        <h1>
+                            {grnd_level} hPa
+                        </h1>
+                    </div>
+                </div>
             </div>
         </div>
 
