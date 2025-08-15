@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather App
+
+A modern, responsive weather application built with Next.js that provides real-time weather information with dynamic background colors based on time of day and weather conditions.
+
+## Features
+
+- **Current Weather Display**: Real-time temperature, humidity, pressure, and wind information
+- **Dynamic Background**: Automatic color scheme changes based on sunrise, sunset, and weather conditions
+- **Location Search**: Search for weather by city, state, and country
+- **Comprehensive Data**: Detailed weather statistics including visibility, sea level pressure, and ground level pressure
+- **Responsive Design**: Clean, modern UI that works across all devices
+- **Timezone Support**: Accurate time display based on location
+
+## Technology Stack
+
+- **Frontend**: Next.js 14 with TypeScript
+- **Styling**: Tailwind CSS
+- **Weather API**: OpenWeatherMap API
+- **State Management**: React Context API
+- **Deployment**: Ready for Vercel deployment
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up your OpenWeatherMap API key in your environment variables
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── currentTemp.tsx      # Main weather display component
+│   │   ├── header.tsx           # Application header
+│   │   ├── search.tsx           # Location search functionality
+│   │   ├── weather.tsx          # Weather data component
+│   │   └── IridescenceContext.tsx # Dynamic background color context
+│   ├── layout.tsx               # Root layout component
+│   └── page.tsx                 # Main application page
+└── backend/
+    └── app.py                   # Backend API (Python)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **CurrentTemp**: Displays comprehensive weather information with dynamic styling
+- **Search**: Location search interface for finding weather data
+- **IridescenceContext**: Manages dynamic background colors based on time and weather
+- **Weather**: Handles weather data fetching and display
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API Integration
 
-## Learn More
+The application integrates with OpenWeatherMap API to provide:
+- Current weather conditions
+- Temperature data (current, max, min, feels like)
+- Wind information (speed, direction, gusts)
+- Atmospheric pressure and humidity
+- Visibility and sea level data
+- Sunrise and sunset times
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project uses modern React patterns including:
+- Functional components with hooks
+- Context API for state management
+- TypeScript for type safety
+- Tailwind CSS for responsive styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the MIT License.
